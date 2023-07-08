@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Pengurus extends Model
 {
     use HasFactory;
+    protected $table = "penguruss";
+
+    protected $fillable = [
+        'nama_pengurus',
+        'kode_pengurus',
+        'jabatan_id',
+        'kontak'
+    ];
 }

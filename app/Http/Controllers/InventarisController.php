@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class InventarisController extends Controller
 {
-    //
+    function index()
+    {
+        
+    }
 }
