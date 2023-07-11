@@ -8,23 +8,23 @@
         </div>
         <div class="card shadow">
             <div class="card-body">
-                <form action="/inventaris/simpan-data" method="POST">
+                <form action="/inventaris/update/{{ $inventarisData->id }}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <label for="nama_barang">Nama Barang:</label>
-                        <input type="text" name="nama_barang" id="nama_barang" class="form-control" required>
+                        <label for="">Nama Barang</label>
+                        <input type="text" value="{{$inventarisData->nama_barang}}" class="form-control" name="nama_barang" required>
                     </div>
                     <div class="form-group">
-                        <label for="kode">Kode:</label>
-                        <input type="text" name="kode" id="kode" class="form-control" required>
+                        <label for="">Kode</label>
+                        <input type="text" value="{{$inventarisData->kode}}" class="form-control" name="kode" required>
                     </div>
                     <div class="form-group">
-                        <label for="jumlah">Jumlah:</label>
-                        <input type="number" name="jumlah" id="jumlah" class="form-control" required>
+                        <label for="">Jumlah</label>
+                        <input type="text" value="{{$inventarisData->jumlah}}" class="form-control" name="jumlah" required>
                     </div>
                     <div class="form-group">
-                        <label for="kondisi_barang">Kondisi Barang:</label>
-                        <input type="text" name="kondisi_barang" id="kondisi_barang" class="form-control" required>
+                        <label for="">Kondisi Barang</label>
+                        <input type="text" value="{{$inventarisData->kondisi_barang}}" class="form-control" name="kondisi_barang" required>
                     </div>
                     <div class="form-group mt-3">
                         <button class="form-control btn btn-primary" type="submit">Simpan</button>
@@ -34,12 +34,3 @@
         </div>
     </div>
 @endsection
-
-        
-
-        
-
-        
-
-        
-

@@ -4,9 +4,6 @@
     <div class="container-fluid px-4">
         <h1 class="mt-4">Inventaris</h1>
         <div class="d-flex justify-content-between mb-3">
-            {{-- <ol class="breadcrumb">
-                <li class="breadcrumb-item active">Data Inventaris</li>
-            </ol> --}}
             <a href="/inventaris/create" class="btn btn-primary">Tambah Data</a>
         </div>
         <div class="card shadow">

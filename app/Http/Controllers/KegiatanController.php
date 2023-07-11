@@ -23,7 +23,7 @@ class KegiatanController extends Controller
         $kegiatanData = new Kegiatan;
         $kegiatanData->nama_kegiatan = $request->nama_kegiatan;
         $kegiatanData->tanggal = $request->tanggal;
-        $kegiatanData->pengurus = $request->pengurus;
+        $kegiatanData->pengurus_id = $request->pengurus_id;
         $kegiatanData->save();
 
         return redirect()->to('/kegiatan')
@@ -46,7 +46,7 @@ class KegiatanController extends Controller
         $kegiatanData = Kegiatan::find($id);
         $kegiatanData->nama_kegiatan = $request->nama_kegiatan;
         $kegiatanData->tanggal = $request->tanggal;
-        $kegiatanData->pengurus = $request->pengurus;
+        $kegiatanData->pengurus_id = $request->pengurus_id;
         $kegiatanData->save();
 
         return redirect()->to('/kegiatan')

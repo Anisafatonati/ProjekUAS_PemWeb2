@@ -4,9 +4,6 @@
     <div class="container-fluid px-4">
         <h1 class="mt-4">Donasi</h1>
         <div class="d-flex justify-content-between mb-3">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item active">Tambah Data Donasi</li>
-            </ol>
             <a href="/donasi" class="btn btn-warning">kembali</a>
         </div>
         <div class="card shadow">
