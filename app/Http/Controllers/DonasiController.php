@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Donasi;
+use Illuminate\Http\Request;
 
 class DonasiController extends Controller
 {
     function index()
     {
-        $donasiData = Donasi::get();
-        return view('pages.donasi.index',['donasiData' => $donasiData]);
+        $donasis = Donasi::get();
+
+        return view('pages.donasi.index', ['donasis' => $donasis]);
     }
 
     function create()
@@ -20,15 +21,41 @@ class DonasiController extends Controller
 
     function store(Request $request)
     {
-        $donasiData = new Donasi;
-        $donasiData->donasi = $request->donasi;
-        $donasiData->save();
-        return redirect()->to('/donasi')->with('success','data sukses disimpan');
+        $donasis = new Donasi;
+        $donasis->tanggal = $request->tanggal;
+        $donasis->nominal = $request->nominal;
+        $donasis->nama_donatur = $request->nama_donatur;
+        $donasis->save();
+        return redirect()->to('/donasi')->with('success', 'Data sukses disimpan');
     }
 
-    function formEdit($id)
+    function show(Donasi $donasis)
     {
-        $donasiData = Donasi::find($id);
-        return view('pages.donasi.form_edit',['donasiData'=>$donasiData]);
+        return view('donasi.show', compact('donasi'));
+    }
+
+    function formEdit( $id)
+    {
+        $donasis = Donasi::find($id);
+        return view('pages.donasi.form_edit', ['donasis'=> $donasis]);
+    }
+
+    function update($id,Request $request)
+    {
+        $donasis = Donasi::find($id);
+        $donasis->tanggal = $request->tanggal;
+        $donasis->nominal = $request->nominal;
+        $donasis->nama_donatur = $request->nama_donatur;
+        $donasis->save();
+
+        return redirect()->to('/donasi')->with('success', 'Donasi berhasil diperbarui.');
+    }
+
+    function delete($id)
+    {
+        $donasis = Donasi::find($id);
+        $donasis->delete();
+
+        return redirect()->to('/donasi')->with('success', 'Donasi berhasil dihapus.');
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DonasiController;
+use App\Http\Controllers\InventarisController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,8 @@ Route::get('/welcome', function () {
 
 Route::get('/donasi',[DonasiController::class, 'index']);
 Route::get('/donasi/create',[DonasiController::class, 'create']);
+Route::post('/donasi/simpan-data', [DonasiController::class, 'store']);
+
+Route::get('/inventaris', [InventarisController::class, 'index']);
+Route::get('/inventaris/create', [InventarisController::class, 'create']);
+Route::post('/inventaris/simpan-data', [InventarisController::class, 'store']);
