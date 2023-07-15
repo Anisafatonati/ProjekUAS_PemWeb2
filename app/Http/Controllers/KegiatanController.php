@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kegiatan;
+use App\Models\Pengurus;
 use Illuminate\Http\Request;
 
 class KegiatanController extends Controller
@@ -13,10 +14,13 @@ class KegiatanController extends Controller
         return view('pages.kegiatan.index', ['kegiatanData' => $kegiatanData]);
     }
 
-    function create()
-    {
-        return view('pages.kegiatan.create');
-    }
+    public function create()
+{
+    $pengurusData = Pengurus::all();
+    $kegiatanData = new Kegiatan();
+    return view('pages.kegiatan.create', compact('pengurusData', 'kegiatanData'));
+}
+
 
     function store(Request $request)
     {
@@ -30,16 +34,21 @@ class KegiatanController extends Controller
             ->with('success', 'Data kegiatan berhasil ditambahkan.');
     }
 
-    function show(kegiatan $kegiatanData)
+    function show($id)
     {
-        return view('pages.kegiatan.show', compact('kegiatan'));
+        $pengurusData = Pengurus::get();
+        $kegiatanData = Kegiatan::findOrFail($id);
+        return view('pages.kegiatan.show', compact('pengurusData','kegiatanData'));
     }
 
-    function formEdit($id)
-    {
-        $kegiatanData = Kegiatan::find($id);
-        return view('pages.kegiatan.form_edit', ['kegiatanData'=>$kegiatanData]);
-    }
+
+    public function formEdit($id)
+{
+    $pengurusData = Pengurus::get();
+    $kegiatanData = Kegiatan::findOrFail($id);
+    return view('pages.kegiatan.form_edit', compact('pengurusData', 'kegiatanData'));
+}
+
 
     function update($id,Request $request)
     {

@@ -3,22 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pengurus;
+use App\Models\Jabatan;
 use Illuminate\Http\Request;
 
 class PengurusController extends Controller
 {
-    function index()
+    public function index()
     {
         $pengurusData = Pengurus::get();
         return view('pages.pengurus.index', ['pengurusData' => $pengurusData]);
     }
 
-    function create()
+    public function create()
     {
-        return view('pages.pengurus.create');
+        $jabatanData = Jabatan::all();
+        $pengurusData = new Pengurus();
+        return view('pages.pengurus.create', compact('jabatanData', 'pengurusData'));
     }
+    
 
-    function store(Request $request)
+    public function store(Request $request)
     {
         $pengurusData = new Pengurus;
         $pengurusData->nama_pengurus = $request->nama_pengurus;
@@ -27,22 +31,25 @@ class PengurusController extends Controller
         $pengurusData->kontak = $request->kontak;
         $pengurusData->save();
 
-        return redirect()->to('/pengurus')
+        return redirect('/pengurus')
             ->with('success', 'Data pengurus berhasil ditambahkan.');
     }
 
-    function show(pengurus $pengurusData)
+    public function show($id)
     {
-        return view('pages.pengurus.show', compact('pengurus'));
+        $jabatanData = Jabatan::get();
+        $pengurusData = Pengurus::findOrFail($id);
+        return view('pages.pengurus.show', compact('jabatanData','pengurusData'));
     }
 
-    function formEdit($id)
+    public function formEdit($id)
     {
-        $pengurusData = Pengurus::find($id);
-        return view('pages.pengurus.form_edit', ['pengurusData'=>$pengurusData]);
-    }
+        $jabatanData = Jabatan::get();
+        $pengurusData = Pengurus::findOrFail($id);
+        return view('pages.pengurus.form_edit', compact('pengurusData', 'jabatanData'));
+    }    
 
-    function update($id,Request $request)
+    public function update(Request $request, $id)
     {
         $pengurusData = Pengurus::find($id);
         $pengurusData->nama_pengurus = $request->nama_pengurus;
@@ -51,16 +58,16 @@ class PengurusController extends Controller
         $pengurusData->kontak = $request->kontak;
         $pengurusData->save();
 
-        return redirect()->to('/pengurus')
+        return redirect('/pengurus')
             ->with('success', 'Data pengurus berhasil diperbarui.');
     }
 
-    function delete($id)
+    public function delete($id)
     {
         $pengurusData = Pengurus::find($id);
         $pengurusData->delete();
 
-        return redirect()->to('/pengurus')
+        return redirect('/pengurus')
             ->with('success', 'Data pengurus berhasil dihapus.');
     }
 }

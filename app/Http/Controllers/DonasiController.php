@@ -29,16 +29,19 @@ class DonasiController extends Controller
         return redirect()->to('/donasi')->with('success', 'Data sukses disimpan');
     }
 
-    function show(Donasi $donasis)
-    {
-        return view('donasi.show', compact('donasi'));
-    }
-
-    function formEdit( $id)
+    function show($id)
     {
         $donasis = Donasi::find($id);
-        return view('pages.donasi.form_edit', ['donasis'=> $donasis]);
+        return view('pages.donasi.show', compact('donasis'));
     }
+
+
+    function formEdit(int $id)
+    {
+        $donasis = Donasi::find($id);
+        return view('pages.donasi.form_edit', compact('donasis'));
+    }
+
 
     function update($id,Request $request)
     {

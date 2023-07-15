@@ -23,8 +23,9 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $jabatan->nama_jabatan }}</td>
                                     <td>
-                                        <a href="/jabatan/edit/{{ $jabatan->id }}" class="btn btn-warning">Edit</a>
-                                        <a href="/jabatan/delete/{{ $jabatan->id }}" class="btn btn-danger">Delete</a>
+                                            <a href="/jabatan/show/{{ $jabatan->id }}" class="btn btn-primary">View</a>
+                                            <a href="/jabatan/edit/{{ $jabatan->id }}" class="btn btn-warning">Edit</a>
+                                            <a href="/jabatan/delete/{{ $jabatan->id }}" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach

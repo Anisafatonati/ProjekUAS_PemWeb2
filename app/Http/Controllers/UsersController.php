@@ -21,7 +21,8 @@ class UsersController extends Controller
     function store(Request $request)
     {
         $userData = new User;
-        $userData->name = $request->name;
+        $userData->first_name = $request->first_name;
+        $userData->last_name = $request->last_name;
         $userData->email = $request->email;
         $userData->password = $request->password;
         $userData->kondisi_barang = $request->kondisi_barang;
@@ -31,9 +32,10 @@ class UsersController extends Controller
             ->with('success', 'Data user berhasil ditambahkan.');
     }
 
-    function show(User $userData)
+    function show($id)
     {
-        return view('pages.user.show', compact('user'));
+        $userData = User::find($id);
+        return view('pages.user.show', compact('userData'));
     }
 
     function formEdit($id)
@@ -45,7 +47,8 @@ class UsersController extends Controller
     function update($id,Request $request)
     {
         $userData = User::find($id);
-        $userData->name = $request->name;
+        $userData->first_name = $request->first_name;
+        $userData->last_name = $request->last_name;
         $userData->email = $request->email;
         $userData->password = $request->password;
         $userData->save();

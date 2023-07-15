@@ -28,6 +28,12 @@ class JabatanController extends Controller
             ->with('success', 'Data jabatan berhasil ditambahkan.');
     }
 
+    function show($id)
+    {
+        $jabatanData =Jabatan::find($id);
+        return view('pages.jabatan.show', compact('jabatanData'));
+    }
+
     function formEdit($id)
     {
         $jabatanData = Jabatan::find($id);

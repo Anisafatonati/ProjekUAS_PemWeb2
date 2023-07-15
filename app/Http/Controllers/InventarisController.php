@@ -32,9 +32,10 @@ class InventarisController extends Controller
             ->with('success', 'Data inventaris berhasil ditambahkan.');
     }
 
-    function show(Inventaris $inventarisData)
+    function show($id)
     {
-        return view('pages.inventaris.show', compact('inventaris'));
+        $inventarisData = Inventaris::find($id);
+        return view('pages.inventaris.show', compact('inventarisData'));
     }
 
     function formEdit($id)

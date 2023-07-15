@@ -29,6 +29,7 @@
                                     <td>{{ $inventaris->jumlah}}</td>
                                     <td>{{ $inventaris->kondisi_barang}}</td>
                                     <td>
+                                        <a href="/inventaris/show/{{ $inventaris->id }}" class="btn btn-primary">View</a>
                                         <a href="/inventaris/edit/{{ $inventaris->id }}" class="btn btn-warning">Edit</a>
                                         <a href="/inventaris/delete/{{ $inventaris->id }}" class="btn btn-danger">Delete</a>
                                     </td>

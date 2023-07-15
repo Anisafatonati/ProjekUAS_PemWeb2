@@ -20,7 +20,13 @@
                     </div>
                     <div class="form-group">
                         <label for="">ID Pengurus</label>
-                        <input type="number" class="form-control" name="pengurus_id" required>
+                        <select name="pengurus_id" id="pengurus_id" class="form-control">
+                            @foreach ($pengurusData as $kegiatan)
+                            <option value="{{$kegiatan->id}}" {{$kegiatan->id == $kegiatanData->pengurus_id ? 'selected' : ''}}>
+                                {{$kegiatan->nama_pengurus}}
+                            </option>
+                            @endforeach
+                        </select>                        
                     </div>
                     <div class="form-group mt-3">
                         <button class="form-control btn btn-primary" type="submit">Simpan</button>

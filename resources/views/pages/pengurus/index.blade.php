@@ -29,8 +29,9 @@
                                     <td>{{ $pengurus->jabatan_id }}</td>
                                     <td>{{ $pengurus->kontak }}</td>
                                     <td>
-                                        <a href="/pengurus/edit/{{ $pengurus->id }}" class="btn btn-warning">Edit</a>
-                                        <a href="/pengurus/delete/{{ $pengurus->id }}" class="btn btn-danger">Delete</a>
+                                            <a href="/pengurus/show/{{ $pengurus->id }}" class="btn btn-primary">View</a>
+                                            <a href="/pengurus/edit/{{ $pengurus->id }}" class="btn btn-warning">Edit</a>
+                                            <a href="/pengurus/delete/{{ $pengurus->id }}" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach

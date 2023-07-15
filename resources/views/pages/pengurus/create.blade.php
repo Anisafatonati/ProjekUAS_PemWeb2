@@ -20,7 +20,13 @@
                     </div>
                     <div class="form-group">
                         <label for="">ID Jabatan</label>
-                        <input type="number" class="form-control" name="jabatan_id" required>
+                        <select name="jabatan_id" id="jabatan_id" class="form-control">
+                            @foreach ($jabatanData as $pengurus)
+                            <option value="{{$pengurus->id}}" {{$pengurus->id == $pengurusData->jabatan_id ? 'selected' : ''}}>
+                                {{$pengurus->nama_jabatan}}
+                            </option> 
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="">Kontak</label>

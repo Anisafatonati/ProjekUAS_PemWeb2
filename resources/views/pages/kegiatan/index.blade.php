@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container-fluid px-4">
-        <h1 class="mt-4">kegiatan</h1>
+        <h1 class="mt-4">Kegiatan</h1>
         <div class="d-flex justify-content-between mb-3">
             <a href="/kegiatan/create" class="btn btn-primary">Tambah Data</a>
         </div>
@@ -27,8 +27,9 @@
                                     <td>{{ $kegiatan->tanggal }}</td>
                                     <td>{{ $kegiatan->pengurus_id }}</td>
                                     <td>
-                                        <a href="/kegiatan/edit/{{ $kegiatan->id }}" class="btn btn-warning">Edit</a>
-                                        <a href="/kegiatan/delete/{{ $kegiatan->id }}" class="btn btn-danger">Delete</a>
+                                            <a href="/kegiatan/show/{{ $kegiatan->id }}" class="btn btn-primary">View</a>
+                                            <a href="/kegiatan/edit/{{ $kegiatan->id }}" class="btn btn-warning">Edit</a>
+                                            <a href="/kegiatan/delete/{{ $kegiatan->id }}" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach

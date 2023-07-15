@@ -16,7 +16,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Nominal</label>
-                        <input type="text" value="{{$donasis->nominal}}" class="form-control" name="nominal" required>
+                        <input type="text" value="{{$donasis->nominal}}" class="form-control" name="nominal" pattern="^\d+(\.\d{1,2})?$" required>
                     </div>
                     <div class="form-group">
                         <label for="">Nama Donatur</label>

@@ -27,6 +27,7 @@
                                     <td>{{ $donasi->nominal}}</td>
                                     <td>{{ $donasi->nama_donatur}}</td>
                                     <td>
+                                        <a href="/donasi/show/{{ $donasi->id }}" class="btn btn-primary">View</a>
                                         <a href="/donasi/edit/{{ $donasi->id }}" class="btn btn-warning">Edit</a>
                                         <a href="/donasi/delete/{{ $donasi->id }}" class="btn btn-danger">Delete</a>
                                     </td>
