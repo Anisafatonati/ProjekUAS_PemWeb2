@@ -169,16 +169,7 @@
   
    <!-- client section start -->
    <!-- choose section start -->
-   <div class="choose_section layout_padding">
-      <div class="container">
-         
-         <h1 class="choose_taital" style="color: white;">Why Choose Us</h1>
-<p class="choose_text" style="color: white;">Reviving Islamic Values in Daily Life: Masjid Al-Amin is dedicated to bringing Islamic values to life in everyday life. 
-    With a variety of religious activities, studies, and social programs, we aim to help our congregation strengthen 
-    their relationship with Allah and apply Islamic teachings in all aspects of life.</p>
-         
-      </div>
-   </div>
+   
    <!-- choose section end -->
    <!-- footer section start -->
    <div class="choose_section layout_padding">
